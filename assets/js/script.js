@@ -12,6 +12,7 @@ function generatePassword(){
 
   var passwordType ="Your password will contain: " + charCount + ", "
 
+  
   if (lowerCase){
     var passwordType = passwordType + "lower case, "
   }
