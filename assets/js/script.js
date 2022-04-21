@@ -2,10 +2,13 @@
 var generateBtn = document.querySelector("#generate");
 
 var password = ""
-
 var passwordPool = "";
+
+
+// This function will take user input and turn it into a random password!
 function generatePassword(){
   
+  // check how long the PW should be and if proper criteria was answered
   var charCount = window.prompt("Password may contain 8-128 characters. Enter desired number of characters.")
   charCount = parseInt(charCount)
   while (charCount < 7 || charCount > 128){
@@ -13,16 +16,16 @@ function generatePassword(){
     var charCount = window.prompt("Password may contain 8-128 characters. Enter desired number of characters.")
     charCount = parseInt(charCount)
   }
+
+  // check for content of PW
   var lowerCase = window.confirm("Do you want lower case characters?");
   var upperCase = window.confirm("Do you want upper case characters?");
   var numberals = window.confirm("Do you want numbers?");
   var specialChars = window.confirm("Do you want special characters?");
 
-  charCount = parseInt(charCount)
-
+ 
+// build confirmation string for content as well as potential pool of characters
   var passwordType ="Your password will contain: " + charCount + ", ";
-  
-
 
   if (lowerCase){
     var passwordType = passwordType + "lower case, ";
@@ -43,7 +46,7 @@ function generatePassword(){
 
   window.alert(passwordType) 
 
-  
+  //builds the actual password
   debugger;
   for (let i = 0; i < charCount; i++)
     password = password + passwordPool.charAt(Math.random() * passwordPool.length)
