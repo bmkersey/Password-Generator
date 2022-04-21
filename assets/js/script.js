@@ -1,10 +1,17 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var charCount = 0
 
+var password = ""
+
+var passwordPool = "";
 function generatePassword(){
-  if (charCount < 7 || charCount > 128){
+  
+  var charCount = window.prompt("Password may contain 8-128 characters. Enter desired number of characters.")
+  charCount = parseInt(charCount)
+  while (charCount < 7 || charCount > 128){
+    window.alert("You must input a valid selection!")
     var charCount = window.prompt("Password may contain 8-128 characters. Enter desired number of characters.")
+    charCount = parseInt(charCount)
   }
   var lowerCase = window.confirm("Do you want lower case characters?");
   var upperCase = window.confirm("Do you want upper case characters?");
@@ -14,7 +21,7 @@ function generatePassword(){
   charCount = parseInt(charCount)
 
   var passwordType ="Your password will contain: " + charCount + ", ";
-  var passwordPool = "";
+  
 
 
   if (lowerCase){
@@ -34,7 +41,14 @@ function generatePassword(){
     var passwordPool = passwordPool + "!@#$%^&*()_+-="
   };
 
-  window.alert(passwordType)  
+  window.alert(passwordType) 
+
+  
+  debugger;
+  for (let i = 0; i < charCount; i++)
+    password = password + passwordPool.charAt(Math.random() * passwordPool.length)
+
+  return password
 
 }
 
